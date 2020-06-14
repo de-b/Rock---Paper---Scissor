@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rock paper scissor</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    body {
+      background: #222;
+    }
+    .game h2, .game h1,
+    .game #result {
+      color: #fff;
+    }
+    .game h1 {
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+    .game h2 {
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-top: 40px;
+    }
+
+    .resultbox {
+      color: #fff;
+    }
+    .resultbox span {
+        display: block;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #fc0;
+    }
+    .resultbox i {
+        font-size: 100px;
+        display: inline-block;
+        margin-top: 50px
+    }
+  </style>
+  <body>
+    <div class="pt-5 pb-3 game">
+      <div class="container">
+        <div id="result" class="text-center h1 pb-5">Click Play Button</div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h1>Player 1</h1>
+            <h2>You Chose:</h2>
+            <div class="resultbox" id="player1"></div>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-lg btn-light" id="play">
+              <i class="fas fa-play"></i> Play
+            </button>
+          </div>
+          <div class="col-md-4">
+              <h1>Player 2</h1>
+            <h2>You Chose:</h2>
+            <div class="resultbox" id="player2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/6021be3dfe.js"></script>
+
+    <script>
+      var randomNum1,randomNum2;
+
+      document.getElementById("play").addEventListener("click", displayWinner);
+
+      function displayWinner() {
+        randomNum1 = Math.floor(Math.random() * 3 + 1);
+        randomNum2 = Math.floor(Math.random() * 3 + 1);
+        
+
+        if (randomNum1 === 1) {
+          document.getElementById("player1").innerHTML =
+            "<span>ROCK</span> <i class='fas fa-hockey-puck'></i>";
+        } else if (randomNum1 === 2) {
+          document.getElementById("player1").innerHTML =
+            "<span>PAPER</span> <i class='fas fa-sticky-note'></i>";
+        } else {
+          document.getElementById("player1").innerHTML =
+            "<span>SCISSOR</span> <i class='fas fa-cut'></i>";
+        }
+
+        if (randomNum2 === 1) {
+          document.getElementById("player2").innerHTML =
+            "<span>ROCK</span> <i class='fas fa-hockey-puck'></i>";
+        } else if (randomNum2 === 2) {
+          document.getElementById("player2").innerHTML =
+            "<span>PAPER</span> <i class='fas fa-sticky-note'></i>";
+        } else {
+          document.getElementById("player2").innerHTML =
+            "<span>SCISSOR</span> <i class='fas fa-cut'></i>";
+        }
+
+        document.getElementById("result").innerHTML = "";
+
+        if (randomNum1 === 1) {
+          if (randomNum2 === 2) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 2 WINS - PAPER WINS AND PLAYER 1 ROCK LOSE";
+          }
+          if (randomNum2 === 3) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 1 WINS - ROCK WINS AND PLAYER 2 SCISSOR LOSE";
+          }
+        }
+
+        if (randomNum1 === 2) {
+          if (randomNum2 === 1) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 1 WINS - PAPER WINS AND PLAYER 2 ROCK LOSE";
+          }
+          if (randomNum2 === 3) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 2 WINS SCISSOR WINS AND PLAYER 1 PAPER LOSE";
+          }
+        }
+
+        if (randomNum1 === 3) {
+          if (randomNum2 === 1) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 2 WINS ROCK AND PLAYER 1 SCISSOR LOSE";
+          }
+          if (randomNum2 === 2) {
+            document.getElementById("result").innerHTML =
+              "PLAYER 1 WINS SCISSOR WINS AND PLAYER 2 PAPER LOSE";
+          }
+        }
+
+        if (randomNum1 === randomNum2) {
+          document.getElementById("result").innerHTML = "DRAW";
+        }
+      }
+    </script>
+  </body>
+</html>
