@@ -1,0 +1,33 @@
+body {
+  background: #222;
+}
+.game h2,
+.game h1,
+.game #result {
+  color: #fff;
+}
+.game h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.game h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+.resultbox {
+  color: #fff;
+}
+.resultbox span {
+  display: block;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fc0;
+}
+.resultbox i {
+  font-size: 100px;
+  display: inline-block;
+  margin-top: 50px;
+}
